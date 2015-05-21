@@ -1,0 +1,9 @@
+<%= bootstrap_form_for @atendee do |f|%>
+	<%= f.text_field :name%>
+	<%= f.text_field :lastname%>
+	<%= f.text_field :email%>
+	<%= f.text_field :phone%>
+	<%= f.text_field :company%>
+	<%= f.submit "Crear", class: "btn btn-success" %>
+	<%= link_to "Back", root_path, class: "btn btn-default" %>
+<% end %>

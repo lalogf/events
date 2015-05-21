@@ -1,0 +1,6 @@
+<%= bootstrap_form_for @event do |f|%>
+	<%= f.text_field :name %>
+	<%= f.text_field :location %>
+	<%= f.date_select(:date, value: Date.today, order: [:day,:month, :year], :start_year => 2014, :end_year => Date.today.year) %>
+	<%= f.submit "Crear", class: "btn btn-success"%>
+<% end %>
