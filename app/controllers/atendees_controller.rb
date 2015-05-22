@@ -2,7 +2,7 @@ class AtendeesController < ApplicationController
 	before_action :set_atendee, only: [:edit, :update, :destroy, :show]
 
 	def index
-		
+		@atendees = Atendee.all
 	end
 	def new
 		@atendee = Atendee.new

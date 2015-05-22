@@ -25,7 +25,18 @@ class EventsController < ApplicationController
 		
 	end
 	def update
+		@event.update(event_params)
 		
+		respond_to do |format|
+
+			if @event.save
+				flash[:success] = "El evento <b>" + @event.name + "</b> se ha creado con éxito"
+				format.html {redirect_to root_path}
+			else 
+				flash[:error] = "Hubo un problema"
+				format.html { render :edit }
+			end
+		end
 	end
 	def destroy
 		 @event.destroy
