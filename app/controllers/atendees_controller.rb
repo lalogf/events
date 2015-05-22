@@ -25,9 +25,26 @@ class AtendeesController < ApplicationController
 		
 	end
 	def update
+		@atendee.update(atendee_params)
 		
+		respond_to do |format|
+			
+			if @atendee.save 
+				flash[:success] = "El invitado <b>" + @atendee.name + " "+ @atendee.lastname+ "</b> se ha actualizado con éxito"
+				format.html { redirect_to root_path}
+			else
+				flash[:error] = "Hubo un error"
+				format.html { render :edit}
+			end
+		end
 	end
 	def destroy
+		@atendee.destroy
+		respond_to do |format|
+			flash[:alert] = "El invitado <b> " + @atendee.name + " " + @atendee.lastname+ " </b> se ha actualizado con éxito."
+			format.html { redirect_to atendees_path}
+		end
+
 		
 	end
 	private

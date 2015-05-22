@@ -1,7 +1,22 @@
-<% @atendees.each do |atendee |%>
-<p><%=atendee.name%></p>
-<p><%=atendee.lastname%></p>
-<p><%=atendee.email%></p>
-<p><%=atendee.company%></p>
-<p><%=atendee.phone%></p>
-<% end %>
+<div class=="row" style="margin-top:10px">
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>Lastname</th>
+			<th>Email</th>
+			<th>Company</th>
+			<th>Phone</th>
+			<th>Otros</th>
+		</tr>
+		<% @atendees.each do |atendee|%>
+			<tr>
+				<td><%=atendee.name%></td>
+				<td><%=atendee.lastname%></td>
+				<td><%=atendee.email%></td>
+				<td><%=atendee.company%></td>
+				<td><%=atendee.phone%></td>
+				<td><%= link_to "Edit", edit_atendee_path(atendee.id), class: "btn btn-warning"%> <%= link_to "Details", atendee_path(atendee.id),  class: "btn btn-default" %> <%= link_to "Delete", atendee_path(atendee.id), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' }%></td>
+			</tr>
+		<% end %>
+	</table>	
+</div>
