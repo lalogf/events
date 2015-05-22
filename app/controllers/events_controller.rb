@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 		respond_to do |format|
 
 			if @event.save
-				flash[:success] = "El evento <b>" + @event.name + "</b> se ha creado con éxito"
+				flash[:success] = "El evento <b>" + @event.name + "</b> se ha actualizado con éxito"
 				format.html {redirect_to root_path}
 			else 
 				flash[:error] = "Hubo un problema"
